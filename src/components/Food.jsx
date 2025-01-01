@@ -8,8 +8,11 @@ const Food = () => {
  
 
   return (
-    <div className='max-w-[1640px] m-auto px-4 py-12'>
-      <h1 className='text-orange-500 font-bold text-4xl text-center mb-12'>
+    <section
+      id='menu'
+      className='container mx-auto  px-4 py-12 min-h-screen flex flex-col justify-center items-center'
+    >
+      <h1 className='text-zinc-700 font-medium text-4xl text-center mb-12'>
         Our Delicacies
       </h1>
 
@@ -85,7 +88,7 @@ const Food = () => {
       </div>
 
       {/* Display foods */}
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
+      <div className='grid  md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
         {foods.map((item) => (
           <div
             key={item.id}
@@ -96,21 +99,20 @@ const Food = () => {
               alt={item.name}
               className='w-full h-[200px] object-cover rounded-t-lg'
             />
-            <div className='flex justify-between px-2 py-4'>
-              <p className='font-bold'>{item.name}</p>
-            </div>
-            <div className='flex justify-between px-2 py-2'>
+            <div className='flex justify-between px-2 flex-col py-4 items-start gap-4 '>
+              <p className='font-semibold text-zinc-700'>{item.name}</p>
               <Link
                 to={`/food/${item.id}`}
-                className='bg-orange-100 text-orange-700 p-2 rounded-lg'
+                className='bg-gray-50 text-orange-500 p-2 rounded-lg'
               >
                 View Details
               </Link>
             </div>
+           
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 };
 

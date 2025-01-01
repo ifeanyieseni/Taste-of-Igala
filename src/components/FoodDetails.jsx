@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -60,8 +60,13 @@ const FoodDetails = () => {
   }
 
   return (
-    <div className='max-w-[1640px] m-auto px-4 py-12'>
-      <h2 className='text-3xl font-bold'>{food.name}</h2>
+    <section className='container mx-auto min-h-screen flex flex-col justify-center px-4 py-12 mt-20 gap-6'>
+      <div className='flex justify-between items-center md:flex-row flex-col gap-4'>
+        <h2 className='text-2xl font-semibold text-zinc-700'>{food.name}</h2>
+        <Link to={'/'} className='shadow-md px-6 py-2 bg-blue-50'>
+          Back Home
+        </Link>
+      </div>
       <img
         src={food.image}
         alt={food.name}
@@ -82,7 +87,7 @@ const FoodDetails = () => {
       </div>
 
       {/* Copy and Bookmark Buttons */}
-      <div className='mt-6 flex space-x-4'>
+      <div className='mt-6 md:flex-row flex flex-col gap-4 '>
         <button
           onClick={handleCopy}
           className='bg-gray-50 text-blue-500 px-4 py-2 rounded-lg border-0'
@@ -118,7 +123,7 @@ const FoodDetails = () => {
           ))}
         </ol>
       </div>
-    </div>
+    </section>
   )
 }
 
